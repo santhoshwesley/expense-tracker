@@ -1,5 +1,15 @@
 import React, { useState } from "react";
 import { useSnackbar } from "notistack";
+import { FaHome, FaCar, FaShoppingCart, FaUtensils } from "react-icons/fa";
+import { MdMovieFilter } from "react-icons/md";
+
+const categoryIcons = {
+  Home: <FaHome />,
+  Transport: <FaCar />,
+  Shopping: <FaShoppingCart />,
+  Food: <FaUtensils />,
+  Movie: <MdMovieFilter />,
+};
 
 const AddExpenseForm = ({ addExpense }) => {
   const [title, setTitle] = useState("");
@@ -38,13 +48,18 @@ const AddExpenseForm = ({ addExpense }) => {
         onChange={(e) => setAmount(e.target.value)}
         required
       />
-      <input
-        type="text"
-        placeholder="Category"
+      <select
         value={category}
         onChange={(e) => setCategory(e.target.value)}
         required
-      />
+      >
+        <option value="">Select Category</option>
+        {Object.keys(categoryIcons).map((category) => (
+          <option key={category} value={category}>
+            {category} {categoryIcons[category]}
+          </option>
+        ))}
+      </select>
       <input
         type="date"
         value={date}

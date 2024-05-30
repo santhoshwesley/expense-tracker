@@ -215,6 +215,7 @@ form h2 {
 }
 
 form input,
+form select,
 form button {
   padding: 10px;
   border: 1px solid #ccc;
@@ -222,7 +223,8 @@ form button {
   font-size: 16px;
 }
 
-form input {
+form input,
+form select {
   background-color: #f0f4f8;
 }
 

@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import {
   FaEdit,
   FaTrash,
+  FaArrowLeft,
+  FaArrowRight,
   FaHome,
   FaCar,
   FaShoppingCart,
   FaUtensils,
-  FaArrowLeft,
-  FaArrowRight,
 } from "react-icons/fa";
 import { MdMovieFilter } from "react-icons/md";
 import { format } from "date-fns";
@@ -22,7 +22,12 @@ const categoryIcons = {
   Movie: <MdMovieFilter />,
 };
 
-const ExpenseList = ({ expenses, editExpense, deleteExpense }) => {
+const ExpenseList = ({
+  expenses,
+  editExpense,
+  deleteExpense,
+  categoryKeys,
+}) => {
   const [currentPage, setCurrentPage] = useState(1);
 
   const formatDate = (dateString) => {
